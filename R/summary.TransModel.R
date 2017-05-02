@@ -1,15 +1,22 @@
 summary.TransModel <-
 function(object,...){
+  if(object$p==0){
+    object$loglik<-loglik(object) 
+    class(object)<-"summary.TransModel"
+    return(object)
+  }
+   if(object$p>0){
 	se<-sqrt(diag(object$vcov))
-	tval<-coef(object)/se
+	zval<-coef(object)/se
 	TAB<-cbind(Estimate=coef(object),
            StdErr=se,
-           t.value=tval,
-           p.value=2*pt(-abs(tval),df=object$df))
+           z.value=zval,
+           p.value=2*pnorm(-abs(zval)))
       col<-ncol(object$data)-1
-	rownames(TAB)<-all.vars(object$formula)[-c(1:2)]
-	res<-list(call=object$call,
+	rownames(TAB)<-names(object$coefficients)
+	res<-list(call=object$call,p=object$p,loglik=loglik(object),AIC=-2*loglik(object)+2*object$p,
           coefficients=TAB)
 	class(res)<-"summary.TransModel"
 	return(res)
+   }
 }

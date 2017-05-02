@@ -1,32 +1,65 @@
 \name{predict.TransModel}
 \alias{predict.TransModel}
+
 \title{
-Predict survival probabilities for the data or at 
-new given time points.
+Predict survival probabilities with confidence intervals and confidence bands
 }
 \description{
-Calculate survival probabilities, 95 percent confidence intervals and confidence bands from the estimated 
-transformation model. If new time points is not specified survival probabilities of the original data set 
-will be returned. If covariate variables are not specified the baseline survival probabilities will be calculated.}
+Calculate survival probabilities, confidence intervals and confidence bands in the estimated 
+transformation model. If new time points is not specified, event times in the original data set 
+will be used. If no new covariate values are specified, zeros will be used and the baseline 
+survival probabilities will be calculated.
+}
 \usage{
 \method{predict}{TransModel}(object, ...)
 }
+
 \arguments{
   \item{object}{
-An object from the function TransModel.
+An object returned from the function TransModel.
 }
-  \item{...}{
-See details.
+  \item{\dots}{
+Other arguments including:
+
+newdata: a vector containing the values for each covariate variables specified in the model. If not specified, 0 will be used for all variables.
+
+new.time: vector of ordered time points to be used for survival probability calculation. If null, distinct event time points
+in the original dataset will be used.
+
+alpha: used to determine the confidence level of the predicted confidence interval/band for the survival curve. 
+The default value is 0.05, corresponding to a 95\% confidence level.
 }
 }
 
-\details{ Other arguments specified in ... including:
-covar: data frame of the values for each covariate variables. If not specified, 0 will be used for all variables.
-new.time: Vector of ordered time points to be used for survival probability calculation. If null, original time points
-in the data set will be used.
-}
 \value{
-Data frame with time points and predicted survival probabilities will be returned. If CICB.st is TRUE, the lower
- limits and upper limits of the confidence interval and confidence bands are also included in the data frame.
+\item{time}{ordered time points on which survival probabilities are calculated.}
+\item{survival}{predicted survival probabilities.}
+\item{ll.st}{the lower limit of confidence interval.}
+\item{ul.st}{the upper limit of confidence interval.}
+\item{lb.st}{the lower limit of confidence band. }
+\item{ub.st}{the upper limit of confidence band.}
+}
+
+\note{
+The values ll.st, ul.st, lb.st and ub.st will be returned only if CICB.st=TRUE in the original model.
+}
+
+
+\examples{
+data(PH_examp)
+mod1<-TransModel(formula=Surv(time,status)~gender+age,data=PH_examp,r=0)
+# Predict survival probability
+pred1<-predict(mod1,newdata=c(0,30))
+pred2<-predict(mod1,newdata=c(1,30))
+plot(pred1)
+lines(pred2$time,pred2$survival,type="s",col=2)
+
+### Not Run ###
+# survival estimate with 95% pointwise CI and overall CB
+# mod1<-TransModel(formula=Surv(time,status)~gender+age,data=PH_examp,r=0,CICB.st=TRUE,num.sim=50)
+# pred1<-predict(mod1,newdata=c(0,30))
+# plot(pred1,lty=1,col=1,CI=TRUE,CB=TRUE)
+# Change the confidence level to 90%
+# pred1<-predict(mod1,newdata=c(0,30),alpha=0.1)
 }
 

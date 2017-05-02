@@ -1,5 +1,5 @@
-Hbeta.fun <-
-function(ord.z,ord.bz,Rt,ord.wt,r,p){
+Hbeta2.fun <-
+function(ord.z,ord.bz,Rt,r,p,ord.wt){
     a = matrix(0,nrow=p,ncol=p)
     for(j in 1:p){
       for(k in 1:p){

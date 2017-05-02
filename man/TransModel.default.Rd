@@ -9,7 +9,7 @@ Default method for function TransModel.
 }
 \usage{
 \method{TransModel}{default}(formula = formula(data), data = parent.frame(),r=0,
-CICB.st=FALSE,dx=0.001,iter.max=100,num.sim=200)
+CICB.st=FALSE,subset,dx=0.001,iter.max=100,num.sim=200)
 }
 \arguments{
   \item{formula}{
@@ -23,6 +23,9 @@ Parameter in the hazard function, used to define different linear models. See de
 }
   \item{CICB.st}{
 Whether or not the perturbation for the 95\% confidence interval and confidence bands will be done. The default value is FALSE.  
+}
+  \item{subset}{
+Conditions for subsetting the dataset.
 }
   \item{dx}{
 Upbound of convergence limit. Default is 0.001.

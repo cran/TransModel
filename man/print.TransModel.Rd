@@ -5,7 +5,7 @@ Print method for the function TransMod.
 }
 \description{
 Estimated coefficients and covariance matrix will be printed for the fitted linear transformation model
- from TransMod.
+ from TransModel.
 }
 \usage{
 \method{print}{TransModel}(x, ...)
@@ -15,6 +15,6 @@ Estimated coefficients and covariance matrix will be printed for the fitted line
 An object from the function TransModel.
 }
   \item{\dots}{
-Other auguments to be specified.
+Other auguments to be specified for the print function.
 }
 }
