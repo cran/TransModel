@@ -1,6 +1,6 @@
 TransModel.default <-
 function(formula = formula(data),data = parent.frame(),r=0,CICB.st=FALSE,subset,dx=0.001,iter.max=100,num.sim=200){
-    if(r<0) stop("the transformation parameter r must be positive",call. = FALSE)
+    if(r<0) stop("the transformation parameter r must be non-negative",call. = FALSE)
     copy.data <- data
     call <- match.call()
     mf <- match.call(expand.dots = FALSE)

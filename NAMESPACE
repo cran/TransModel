@@ -2,11 +2,11 @@ importFrom(survival,"Surv")
 importFrom(graphics, "lines", "plot")
 importFrom(MASS,"ginv")
 importFrom(stats, "coef", "model.extract", "model.matrix", "printCoefmat", "pt", "qnorm", "quantile", "rexp", "sd","stepfun", "terms","na.omit","pnorm")
-export("TransModel","TransModel.default","summary.TransModel","print.TransModel","predict.TransModel","plot.predict.TransModel")
+export("TransModel","TransModel.default","summary.TransModel","print.summary.TransModel","print.TransModel","predict.TransModel","plot.predict.TransModel")
 S3method(TransModel,default)
 S3method(plot,predict.TransModel)
 S3method(predict,TransModel)
 S3method(summary,TransModel)
 S3method(print,TransModel)
-
+S3method(print,summary.TransModel)
 

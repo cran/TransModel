@@ -19,10 +19,10 @@ A survival formula based on Surv function, containg survival time, right censori
 Data set with all the variables needed in formula.
 }
   \item{r}{
-Parameter in the hazard function, used to define different linear models. See details for more information.
+Parameter in the hazard function, used to define different transformation models. Must be a non-negative value. The default value is 0.
 }
   \item{CICB.st}{
-Whether or not the perturbation for the 95\% confidence interval and confidence bands will be done. The default value is FALSE.  
+Whether or not the perturbation for the confidence interval and confidence bands will be done. The default value is FALSE.  
 }
   \item{subset}{
 Conditions for subsetting the dataset.

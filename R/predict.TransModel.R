@@ -58,22 +58,25 @@ function(object,...){
     lb.err<-monot(lb.err)
 
     if(r==0){
-      ll.st<-exp(-exp(ul.err))
-      ul.st<-exp(-exp(ll.err))
+      low.ci<-exp(-exp(ul.err))
+      up.ci<-exp(-exp(ll.err))
 
-      lb.st<-exp(-exp(ub.err))
-      ub.st<-exp(-exp(lb.err))
+      low.cb<-exp(-exp(ub.err))
+      up.cb<-exp(-exp(lb.err))
     } else{
-      ll.st<-exp(-log(1+r*exp(ul.err))/r)
-      ul.st<-exp(-log(1+r*exp(ll.err))/r)
+      low.ci<-exp(-log(1+r*exp(ul.err))/r)
+      up.ci<-exp(-log(1+r*exp(ll.err))/r)
 
-      lb.st<-exp(-log(1+r*exp(ub.err))/r)
-      ub.st<-exp(-log(1+r*exp(lb.err))/r)
+      low.cb<-exp(-log(1+r*exp(ub.err))/r)
+      up.cb<-exp(-log(1+r*exp(lb.err))/r)
     }
 
-    ll.st[ll.st<0]<-lb.st[lb.st<0]<-0
-    ul.st[ul.st>1]<-ub.st[ub.st>1]<-1
-    pred<-data.frame(pred,ll.st,ul.st,lb.st,ub.st)
+    low.ci[low.ci<0]<-low.cb[low.cb<0]<-0
+    up.ci[up.ci>1]<-up.cb[up.cb>1]<-1
+    pred$low.ci<-low.ci
+    pred$up.ci<-up.ci   
+    pred$low.cb<-low.cb
+    pred$up.cb<-up.cb
     pred$Qa=Qa
     }
 

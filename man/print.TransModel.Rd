@@ -1,7 +1,7 @@
 \name{print.TransModel}
 \alias{print.TransModel}
 \title{
-Print method for the function TransMod.
+Print method for the function TransModel.
 }
 \description{
 Estimated coefficients and covariance matrix will be printed for the fitted linear transformation model

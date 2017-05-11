@@ -40,7 +40,7 @@ The number of perturbation, only works when CICB.st=TRUE. Default is 200.
 }
 \details{
 In the linear transformation model H(t)=-b'z+e, the hazard function for error term e is defined as:
-h(x)=exp(x)/(1+r*exp(x)), where the parameter r can be changed for different models. For example, r=0 refers to the proportional hazards
+h(x)=exp(x)/(1+r*exp(x)), where the parameter r must be a non-negative value and can be changed for different models. For example, r=0 refers to the proportional hazards
 model and r=1 refers to a proportional odds model. The default value for r is 0.
 }
 \value{
@@ -63,8 +63,6 @@ summary(mod1)
 mod1$coefficients
 mod1$vcov
 mod1$converged
-summary(mod1)$loglik
-summary(mod1)$AIC
 
 # Fit proportional odds model
 data(PO_examp)

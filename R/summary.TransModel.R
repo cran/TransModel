@@ -1,7 +1,6 @@
 summary.TransModel <-
 function(object,...){
   if(object$p==0){
-    object$loglik<-loglik(object) 
     class(object)<-"summary.TransModel"
     return(object)
   }
@@ -14,8 +13,7 @@ function(object,...){
            p.value=2*pnorm(-abs(zval)))
       col<-ncol(object$data)-1
 	rownames(TAB)<-names(object$coefficients)
-	res<-list(call=object$call,p=object$p,loglik=loglik(object),AIC=-2*loglik(object)+2*object$p,
-          coefficients=TAB)
+	res<-list(call=object$call,p=object$p,coefficients=TAB)
 	class(res)<-"summary.TransModel"
 	return(res)
    }
