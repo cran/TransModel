@@ -5,12 +5,10 @@
 \packageTitle{TransModel}
 }
 \description{
-Semiparametric analysis for linear transformation model, such as the proportional hazards model
- and the proportional odds model, is fitted based on a unified method proposed in Chen(2002) for right censored survival data.
+Semiparametric analysis for linear transformation model, such as the proportional hazards model and the proportional odds model, is fitted based on a unified method proposed in Chen(2002) for right censored survival data.
 }
 \details{
-The main function TransModel gives estimates for coefficients and covariance matrix for the predictors
-in the linear transformation model. Print and summary method can be applied to the returned object.
+The main function TransModel gives estimates for coefficients and covariance matrix for the predictors in the linear transformation model. Print and summary method can be applied to the returned object.
 }
 \author{
 \packageAuthor{TransModel}
@@ -18,7 +16,8 @@ in the linear transformation model. Print and summary method can be applied to t
 Maintainer: \packageMaintainer{TransModel}
 }
 \references{
-Kani Chen, et al., Semiparametric analysis of transformation models with censored data. Biometrika, 
-89(3), 659-668, 2002.
+ Kani Chen, et al., Semiparametric analysis of transformation models with censored data. Biometrika, 89(3), 659-668, 2002.
+ 
+ Jie Zhou, Jiajia Zhang, Wenbin Lu. An R Package for Linear Transformation Model with Censored Data. \emph{Journal of Statistical Software}, 101(1), 1-12, 2022. 
 }
 

@@ -1,0 +1,18 @@
+bibentry(bibtype = "Article",
+  title        = "{TransModel}: An {R} Package for Linear Transformation Model with Censored Data",
+  author       = c(person(given = "Jie",
+                          family = "Zhou"),
+                   person(given = "Jiajia",
+                          family = "Zhang",
+                          email = "jzhang@mailbox.sc.edu"),
+                   person(given = "Wenbin",
+                          family = "Lu")),
+  journal      = "Journal of Statistical Software",
+  year         = "2022",
+  volume       = "101",
+  number       = "9",
+  pages        = "1--12",
+  doi          = "10.18637/jss.v101.i09",
+  header       = "To cite TransModel in publications use:"
+)
+

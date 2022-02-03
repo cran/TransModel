@@ -6,12 +6,12 @@ function(x,CI=FALSE,CB=FALSE,...){
   if(is.null(arg$ylim))  arg$ylim<-c(0,1)
   plot(x$time,x$survival,type="s",xlab=arg$xlab,ylab=arg$ylab,...)
   if(CI){
-     lines(x$time,x$ll.st,lty=2,type="s")
-     lines(x$time,x$ul.st,lty=2,type="s")
+     lines(x$time,x$low.ci,lty=2,type="s")
+     lines(x$time,x$up.ci,lty=2,type="s")
   }
   if(CB){
-     lines(x$time,x$lb.st,lty=3,type="s")
-     lines(x$time,x$ub.st,lty=3,type="s")
+     lines(x$time,x$low.cb,lty=3,type="s")
+     lines(x$time,x$up.cb,lty=3,type="s")
   }
   class(x)<-"predict.TransModel"
 }
